@@ -2,10 +2,11 @@
 
 # presumably getting info about file i want
 .data
-	name: .string "nothing.txt"
+	name: .string "nothing2.txt"
 	fd: .int 0
 	buf: .string "0" # not sure what this is for
 	filelength: .long 512
+
 .text
 
 test_text:
@@ -13,12 +14,6 @@ test_text:
 	length = . - test_text
 
 _start:
-	# test text
-#	mov $1, %rax
-#	mov $2, %rdi
-#	mov $test_text, %rsi
-#	mov $length, %rdx
-#	syscall
 	
 	# sys_open
 	mov $2, %rax
@@ -27,8 +22,8 @@ _start:
 	mov $0777, %rdx
 	syscall
 
-	mov %rax, %rdi # sys_open puts returns fd via rax if successful -> sys_read wants this in %rdi 
 	# sys_read
+	mov %rax, %rdi # sys_open puts returns fd via rax if successful -> sys_read wants this in %rdi 
 	mov $0, %rax
 	mov $buf, %rsi
 	mov $filelength, %rdx
@@ -43,7 +38,7 @@ _start:
 	mov $1, %rax
 	mov $2, %rdi
 	mov $buf, %rsi
-	mov $19, %rdx
+	mov $50, %rdx
 	syscall
 
 	# exit
