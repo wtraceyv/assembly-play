@@ -9,7 +9,7 @@ section .data
 ; Declaring variables - uninitialized
 section .bss
 	descriptor resb 4
-	content: resb 1024
+	content resb 1024
 
 ; Actual code
 section .text
@@ -36,7 +36,7 @@ section .text
 	int 0x80
 
 	mov eax, 6
-	mov ebx, [descriptor]
+	mov ebx, descriptor
 	int 0x80
 
 	mov eax, 1
