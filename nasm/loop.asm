@@ -57,6 +57,7 @@ main_loop:
 	mov [loopCount], esi
 	jnz main_loop
 
+	ret
 
 ; helper for line breaks
 print_break:
