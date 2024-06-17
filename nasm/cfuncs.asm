@@ -21,3 +21,10 @@ main:
 
 	push 1
 	call exit
+
+	; note that if the function returns something,
+	; it will save the value at eax usually.
+
+	; To use your own c function, the assembly is the same.
+	; In the C, forward declare the function as extern also.
+	; Then add your myfile.c to the link/gcc command when you compile.
